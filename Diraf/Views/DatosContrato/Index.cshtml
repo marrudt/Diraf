@@ -1,0 +1,440 @@
+﻿@model IEnumerable<Diraf.Models.DatosContrato>
+
+@{
+    ViewBag.Title = "Datos Contrato";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Datos Contrato</h2>
+
+<p>
+    @Html.ActionLink("Crear Nuevo", "Create")
+</p>
+    @using (Html.BeginForm())
+{
+    <p>
+        Número Sigea: @Html.TextBox("Busqueda")
+        <input type="submit" value="Buscar" />
+    </p>
+
+}
+<p></p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Id_Taller)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Id_Unidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Id_Usuario)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.NumeroSigea)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaEmisionSigea)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Id_ClaseServicio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaIngresoTaller)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumeroOTTaller)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.DiasTaller)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Km)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Placa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sigla)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModeloAno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Id_Clase)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Id_Linea)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.CotizacionValorServicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CotizacionValorRptosGravados)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CotizacionValorRptosExcentos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CotizacionValorDescuento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CotizacionSubtotal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CotizacionValorIva)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CotizacionValorTotal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaSalidaTaller)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoFactura)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumeroFactura)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaFactura)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FacturaValorServicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FacturaValorRptosGravados)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FacturaValorRptosExcentos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FacturaValorDescuento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FacturaSubtotal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FacturaValorIva)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FacturaValorTotal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumeroFacturaServicio1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaFacturaServicio1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FacturaServicio1Proveedor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FacturaServicio1Concepto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FacturaServicio1ValorServicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FacturaServicio1ValorIva)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FacturaServicio1ValorTotal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumeroFacturaServicio2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaFacturaServicio2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FacturaServicio2Proveedor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FacturaServicio2Concepto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FacturaServicio2ValorServicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FacturaServicio2ValorIva)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FacturaServicio2ValorTotal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DiferenciaTaller)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaPreliquidacionFinal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PreliquidacionFinalValorServicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PreliquidacionFinalValorRptosGravados)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PreliquidacionFinalValorRptosExcentos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PreliquidacionFinalValorDescuento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PreliquidacionFinalSubtotal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PreliquidacionFinalValorIva)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PreliquidacionFinalValorTotal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Utilidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UtilidadRelativa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ControlPrefacturaFirmadaTaller)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ControlFacturaFirmadaTaller)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ControlActaRecibidaSatisfaccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ControlSigeaOriginal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EntregaCoordinador)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreCompletoConductor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CorreoConductor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TelefonoConductor)
+            </th>
+            <th></th>
+        </tr>*@
+
+        @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Id_Taller)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id_Unidad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id_Usuario)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.NumeroSigea)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaEmisionSigea)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id_ClaseServicio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaIngresoTaller)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumeroOTTaller)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.DiasTaller)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.Km)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Placa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sigla)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModeloAno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id_Clase)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id_Linea)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.CotizacionValorServicio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CotizacionValorRptosGravados)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CotizacionValorRptosExcentos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CotizacionValorDescuento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CotizacionSubtotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CotizacionValorIva)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CotizacionValorTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaSalidaTaller)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TipoFactura)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumeroFactura)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaFactura)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FacturaValorServicio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FacturaValorRptosGravados)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FacturaValorRptosExcentos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FacturaValorDescuento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FacturaSubtotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FacturaValorIva)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FacturaValorTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumeroFacturaServicio1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaFacturaServicio1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FacturaServicio1Proveedor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FacturaServicio1Concepto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FacturaServicio1ValorServicio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FacturaServicio1ValorIva)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FacturaServicio1ValorTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumeroFacturaServicio2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaFacturaServicio2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FacturaServicio2Proveedor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FacturaServicio2Concepto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FacturaServicio2ValorServicio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FacturaServicio2ValorIva)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FacturaServicio2ValorTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiferenciaTaller)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaPreliquidacionFinal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PreliquidacionFinalValorServicio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PreliquidacionFinalValorRptosGravados)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PreliquidacionFinalValorRptosExcentos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PreliquidacionFinalValorDescuento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PreliquidacionFinalSubtotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PreliquidacionFinalValorIva)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PreliquidacionFinalValorTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Utilidad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UtilidadRelativa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ControlPrefacturaFirmadaTaller)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ControlFacturaFirmadaTaller)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ControlActaRecibidaSatisfaccion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ControlSigeaOriginal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EntregaCoordinador)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreCompletoConductor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CorreoConductor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TelefonoConductor)
+        </td>*@
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Consultar", "Details", new { id = item.Id }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+        </td>
+    </tr>
+    }
+
+    </table>

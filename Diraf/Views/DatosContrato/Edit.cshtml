@@ -1,0 +1,636 @@
+﻿@model Diraf.Models.DatosContrato
+
+@{
+    ViewBag.Title = "Editar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Datos Contrato</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>Editar</h4>
+    <hr />
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.Id)
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <div class="col-md-4">
+                    @Html.LabelFor(model => model.Id_Taller, new { @class = "control-label col-md-2" })
+                </div>
+                <div class="col-md-8">
+                    @Html.DropDownListFor(model => model.Id_Taller, new SelectList(ViewBag.ListaTalleres, "Id", "NombreTaller"))
+                    @Html.ValidationMessageFor(model => model.Id_Taller)
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <div class="col-md-4">
+                    @Html.LabelFor(model => model.Id_Unidad, new { @class = "control-label col-md-2" })
+                </div>
+                <div class="col-md-8">
+                    @Html.DropDownListFor(model => model.Id_Unidad, new SelectList(ViewBag.ListaUnidades, "Id", "NombreUnidad"))
+                    @*@Html.EditorFor(model => model.Id_Unidad)*@
+                    @Html.ValidationMessageFor(model => model.Id_Unidad)
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <div class="col-md-4">
+                    @Html.LabelFor(model => model.Id_Usuario, new { @class = "control-label col-md-2" })
+                </div>
+                <div class="col-md-8">
+                    @Html.DropDownListFor(model => model.Id_Usuario, new SelectList(ViewBag.ListaUsuarios, "Id", "Nombre_Usuario"))
+                    @Html.ValidationMessageFor(model => model.Id_Usuario)
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr />
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <div class="col-md-5">
+                    @Html.LabelFor(model => model.NumeroSigea, new { @class = "col-md-12" })
+                </div>
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.NumeroSigea)
+                    @Html.ValidationMessageFor(model => model.NumeroSigea)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-5">
+                    @Html.LabelFor(model => model.FechaEmisionSigea, new { @class = "col-md-12" })
+                </div>
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.FechaEmisionSigea)
+                    @Html.ValidationMessageFor(model => model.FechaEmisionSigea)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-5">
+                    @Html.LabelFor(model => model.Id_ClaseServicio, new { @class = "col-md-12" })
+                </div>
+                <div class="col-md-7">
+                    @Html.DropDownListFor(model => model.Id_ClaseServicio, new SelectList(ViewBag.ListaClasesServicios, "Id", "NombreServicio"))
+                    @Html.ValidationMessageFor(model => model.Id_ClaseServicio)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-5">
+                    @Html.LabelFor(model => model.FechaIngresoTaller, new { @class = "col-md-12" })
+                </div>
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.FechaIngresoTaller)
+                    @Html.ValidationMessageFor(model => model.FechaIngresoTaller)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-5">
+                    @Html.LabelFor(model => model.NumeroOTTaller, new { @class = "col-md-12" })
+                </div>
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.NumeroOTTaller)
+                    @Html.ValidationMessageFor(model => model.NumeroOTTaller)
+                </div>
+            </div>
+
+            @*<div class="form-group">
+                <div class="col-md-5">
+                    @Html.LabelFor(model => model.DiasTaller, new { @class = "col-md-12" })
+                </div>
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.DiasTaller)
+                    @Html.ValidationMessageFor(model => model.DiasTaller)
+                </div>
+            </div>*@
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Km, new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.Km)
+                    @Html.ValidationMessageFor(model => model.Km)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Placa, new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.Placa)
+                    @Html.ValidationMessageFor(model => model.Placa)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Sigla, new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.Sigla)
+                    @Html.ValidationMessageFor(model => model.Sigla)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ModeloAno, new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.ModeloAno)
+                    @Html.ValidationMessageFor(model => model.ModeloAno)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Id_Clase, new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.DropDownListFor(model => model.Id_Clase, new SelectList(ViewBag.ListaClasesVhs, "Id", "NombreClaseVh"))
+                    @Html.ValidationMessageFor(model => model.Id_Clase)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Id_Linea, new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.DropDownListFor(model => model.Id_Linea, new SelectList(ViewBag.ListaLineasVhs, "Id", "NombreLineaVh"))
+                    @Html.ValidationMessageFor(model => model.Id_Linea)
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <h4>Cotización</h4>
+            <div class="form-group">
+                @Html.LabelFor(model => model.CotizacionValorServicio, new { @class = "col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.CotizacionValorServicio)
+                    @Html.ValidationMessageFor(model => model.CotizacionValorServicio)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CotizacionValorRptosGravados, new { @class = "col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.CotizacionValorRptosGravados)
+                    @Html.ValidationMessageFor(model => model.CotizacionValorRptosGravados)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CotizacionValorRptosExcentos, new { @class = "col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.CotizacionValorRptosExcentos)
+                    @Html.ValidationMessageFor(model => model.CotizacionValorRptosExcentos)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CotizacionValorDescuento, new { @class = "col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.CotizacionValorDescuento)
+                    @Html.ValidationMessageFor(model => model.CotizacionValorDescuento)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CotizacionSubtotal, new { @class = "col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.CotizacionSubtotal)
+                    @Html.ValidationMessageFor(model => model.CotizacionSubtotal)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CotizacionValorIva, new { @class = "col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.CotizacionValorIva)
+                    @Html.ValidationMessageFor(model => model.CotizacionValorIva)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CotizacionValorTotal, new { @class = "col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.CotizacionValorTotal)
+                    @Html.ValidationMessageFor(model => model.CotizacionValorTotal)
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.FechaSalidaTaller, new { @class = "col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.FechaSalidaTaller)
+                    @Html.ValidationMessageFor(model => model.FechaSalidaTaller)
+                </div>
+            </div>
+
+            @*<hr />*@
+
+            @*<div class="form-group">
+                @Html.LabelFor(model => model.DiferenciaTaller, new { @class = "col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.DiferenciaTaller)
+                    @Html.ValidationMessageFor(model => model.DiferenciaTaller)
+                </div>
+            </div>*@
+
+            @*<hr />*@
+        </div>
+        <div class="col-md-4">
+            <h4>Factura</h4>
+            <div class="form-group">
+                @Html.LabelFor(model => model.TipoFactura, new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.TipoFactura)
+                    @Html.ValidationMessageFor(model => model.TipoFactura)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.NumeroFactura, new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.NumeroFactura)
+                    @Html.ValidationMessageFor(model => model.NumeroFactura)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.FechaFactura, new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.FechaFactura)
+                    @Html.ValidationMessageFor(model => model.FechaFactura)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.FacturaValorServicio, new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.FacturaValorServicio)
+                    @Html.ValidationMessageFor(model => model.FacturaValorServicio)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.FacturaValorRptosGravados, new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.FacturaValorRptosGravados)
+                    @Html.ValidationMessageFor(model => model.FacturaValorRptosGravados)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.FacturaValorRptosExcentos, new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.FacturaValorRptosExcentos)
+                    @Html.ValidationMessageFor(model => model.FacturaValorRptosExcentos)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.FacturaValorDescuento, new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.FacturaValorDescuento)
+                    @Html.ValidationMessageFor(model => model.FacturaValorDescuento)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.FacturaSubtotal, new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.FacturaSubtotal)
+                    @Html.ValidationMessageFor(model => model.FacturaSubtotal)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.FacturaValorIva, new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.FacturaValorIva)
+                    @Html.ValidationMessageFor(model => model.FacturaValorIva)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.FacturaValorTotal, new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.FacturaValorTotal)
+                    @Html.ValidationMessageFor(model => model.FacturaValorTotal)
+                </div>
+            </div>
+        </div>
+
+        <h4>Facturas Servicios</h4>
+        <div class="col-md-4">
+            <div class="form-group">
+                @Html.LabelFor(model => model.NumeroFacturaServicio1, new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.NumeroFacturaServicio1)
+                    @Html.ValidationMessageFor(model => model.NumeroFacturaServicio1)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.FechaFacturaServicio1, new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.FechaFacturaServicio1)
+                    @Html.ValidationMessageFor(model => model.FechaFacturaServicio1)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.FacturaServicio1Proveedor, new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.FacturaServicio1Proveedor)
+                    @Html.ValidationMessageFor(model => model.FacturaServicio1Proveedor)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.FacturaServicio1Concepto, new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.FacturaServicio1Concepto)
+                    @Html.ValidationMessageFor(model => model.FacturaServicio1Concepto)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.FacturaServicio1ValorServicio, new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.FacturaServicio1ValorServicio)
+                    @Html.ValidationMessageFor(model => model.FacturaServicio1ValorServicio)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.FacturaServicio1ValorIva, new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.FacturaServicio1ValorIva)
+                    @Html.ValidationMessageFor(model => model.FacturaServicio1ValorIva)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.FacturaServicio1ValorTotal, new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.FacturaServicio1ValorTotal)
+                    @Html.ValidationMessageFor(model => model.FacturaServicio1ValorTotal)
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.NumeroFacturaServicio2, new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.NumeroFacturaServicio2)
+                    @Html.ValidationMessageFor(model => model.NumeroFacturaServicio2)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.FechaFacturaServicio2, new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.FechaFacturaServicio2)
+                    @Html.ValidationMessageFor(model => model.FechaFacturaServicio2)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.FacturaServicio2Proveedor, new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.FacturaServicio2Proveedor)
+                    @Html.ValidationMessageFor(model => model.FacturaServicio2Proveedor)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.FacturaServicio2Concepto, new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.FacturaServicio2Concepto)
+                    @Html.ValidationMessageFor(model => model.FacturaServicio2Concepto)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.FacturaServicio2ValorServicio, new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.FacturaServicio2ValorServicio)
+                    @Html.ValidationMessageFor(model => model.FacturaServicio2ValorServicio)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.FacturaServicio2ValorIva, new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.FacturaServicio2ValorIva)
+                    @Html.ValidationMessageFor(model => model.FacturaServicio2ValorIva)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.FacturaServicio2ValorTotal, new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.FacturaServicio2ValorTotal)
+                    @Html.ValidationMessageFor(model => model.FacturaServicio2ValorTotal)
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr />
+
+   <div class="row">
+        <div class="col-md-4">
+            <h4>Preliquidación</h4>
+            <div class="form-group">
+                @Html.LabelFor(model => model.FechaPreliquidacionFinal, new { @class = "col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.FechaPreliquidacionFinal)
+                    @Html.ValidationMessageFor(model => model.FechaPreliquidacionFinal)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.PreliquidacionFinalValorServicio, new { @class = "col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.PreliquidacionFinalValorServicio)
+                    @Html.ValidationMessageFor(model => model.PreliquidacionFinalValorServicio)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.PreliquidacionFinalValorRptosGravados, new { @class = "col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.PreliquidacionFinalValorRptosGravados)
+                    @Html.ValidationMessageFor(model => model.PreliquidacionFinalValorRptosGravados)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.PreliquidacionFinalValorRptosExcentos, new { @class = "col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.PreliquidacionFinalValorRptosExcentos)
+                    @Html.ValidationMessageFor(model => model.PreliquidacionFinalValorRptosExcentos)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.PreliquidacionFinalValorDescuento, new { @class = "col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.PreliquidacionFinalValorDescuento)
+                    @Html.ValidationMessageFor(model => model.PreliquidacionFinalValorDescuento)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.PreliquidacionFinalSubtotal, new { @class = "col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.PreliquidacionFinalSubtotal)
+                    @Html.ValidationMessageFor(model => model.PreliquidacionFinalSubtotal)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.PreliquidacionFinalValorIva, new { @class = "col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.PreliquidacionFinalValorIva)
+                    @Html.ValidationMessageFor(model => model.PreliquidacionFinalValorIva)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.PreliquidacionFinalValorTotal, new { @class = "col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.PreliquidacionFinalValorTotal)
+                    @Html.ValidationMessageFor(model => model.PreliquidacionFinalValorTotal)
+                </div>
+            </div>
+
+            @*<hr />
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Utilidad, new { @class = "col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.Utilidad)
+                    @Html.ValidationMessageFor(model => model.Utilidad)
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.UtilidadRelativa, new { @class = "col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.UtilidadRelativa)
+                    @Html.ValidationMessageFor(model => model.UtilidadRelativa)
+                </div>
+            </div>*@
+        </div>
+        <div class="col-md-6">
+            <h4>Control</h4>
+            <div class="form-group">
+                @Html.LabelFor(model => model.ControlPrefacturaFirmadaTaller, new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.ControlPrefacturaFirmadaTaller)
+                    @Html.ValidationMessageFor(model => model.ControlPrefacturaFirmadaTaller)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ControlFacturaFirmadaTaller, new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.ControlFacturaFirmadaTaller)
+                    @Html.ValidationMessageFor(model => model.ControlFacturaFirmadaTaller)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ControlActaRecibidaSatisfaccion, new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.ControlActaRecibidaSatisfaccion)
+                    @Html.ValidationMessageFor(model => model.ControlActaRecibidaSatisfaccion)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ControlSigeaOriginal, new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.ControlSigeaOriginal)
+                    @Html.ValidationMessageFor(model => model.ControlSigeaOriginal)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.EntregaCoordinador, new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.EntregaCoordinador)
+                    @Html.ValidationMessageFor(model => model.EntregaCoordinador)
+                </div>
+            </div>
+            <h4>Datos Conductor</h4>
+            <div class="form-group">
+                @Html.LabelFor(model => model.NombreCompletoConductor, new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.NombreCompletoConductor)
+                    @Html.ValidationMessageFor(model => model.NombreCompletoConductor)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CorreoConductor, new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.CorreoConductor)
+                    @Html.ValidationMessageFor(model => model.CorreoConductor)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.TelefonoConductor, new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.TelefonoConductor)
+                    @Html.ValidationMessageFor(model => model.TelefonoConductor)
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Actualizar" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+</div>
+
+}
+
+
+
+    <div>
+        @Html.ActionLink("Volver a Listado", "Index")
+    </div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

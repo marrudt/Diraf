@@ -1,0 +1,35 @@
+﻿@model Diraf.Models.LineaVh
+
+@{
+    ViewBag.Title = "Consultar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Línea Vehículo</h2>
+
+<div>
+    <h4>Consultar</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreLineaVh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreLineaVh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Activo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Activo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Volver a Listado", "Index")
+</p>
